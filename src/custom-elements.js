@@ -4,12 +4,7 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
 
-
 (function(scope){
-
-if (!scope) {
-  scope = window.CustomElements = {flags:{}};
-}
 
 var logFlags = window.logFlags || {};
 var IMPORT_LINK_TYPE = window.HTMLImports ? HTMLImports.IMPORT_LINK_TYPE : 'none';
@@ -901,11 +896,11 @@ function bootstrap() {
   // one more pass before register is 'live'
   CustomElements.upgradeDocument(document);
   // choose async
-  var async = window.Platform && Platform.endOfMicrotask ?
+  var async = window.Platform && Platform.endOfMicrotask ? 
     Platform.endOfMicrotask :
     setTimeout;
   async(function() {
-    // set internal 'ready' flag, now document.registerElement will trigger
+    // set internal 'ready' flag, now document.registerElement will trigger 
     // synchronous upgrades
     CustomElements.ready = true;
     // capture blunt profiling data
@@ -946,7 +941,7 @@ if (document.readyState === 'complete' || scope.flags.eager) {
 } else if (document.readyState === 'interactive' && !window.attachEvent &&
     (!window.HTMLImports || window.HTMLImports.ready)) {
   bootstrap();
-// When loading at other readyStates, wait for the appropriate DOM event to
+// When loading at other readyStates, wait for the appropriate DOM event to 
 // bootstrap.
 } else {
   var loadEvent = window.HTMLImports && !HTMLImports.ready ?
