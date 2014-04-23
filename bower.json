@@ -13,6 +13,7 @@
     "src/custom-elements.js"
   ],
   "dependencies": {
-    "MutationObserver": "~0.2.0"
+    "MutationObserver": "~0.2.0",
+    "domtokenlist-polyfill": "0.0.1"
   }
 }
